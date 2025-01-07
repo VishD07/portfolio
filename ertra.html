@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stories, Pixels, and Pages</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #d8dfea;
+            color: #2d2d2d;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+            height: 180px;
+            padding: 0 2rem;
+            background: #000000;
+            overflow: hidden;
+        }
+
+        header img.hero {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        header .header-content {
+            display: flex;
+            align-items: center;
+        }
+
+        header .header-content img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+            color: white;
+        }
+
+        header .header-content p {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #d8dfea;
+        }
+
+        header .explore-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        header .explore-links a {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border: none;
+            box-shadow: none; /* Ensure no shadows are added */
+            filter: grayscale(100%) brightness(100%);
+            background-color: transparent; /* Ensure no background color */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add smooth shadow animation */
+        }
+
+        header .explore-links a:hover {
+            transform: scale(1.1);
+            filter: none;
+        }
+
+        header .explore-links img {
+            width: 50px;
+            height: 50px;
+            background-color: transparent; /* Ensure no background */
+            border: none; /* Remove any borders */
+            box-shadow: none; /* Ensure no shadows */
+            display: block; /* Ensure proper alignment */
+
+
+        }
+
+        .neon-line {
+            height: 5px;
+            background: linear-gradient(90deg, rgba(0, 192, 255, 1), rgba(255, 0, 255, 1));
+            box-shadow: 0 0 10px rgba(0, 192, 255, 0.8), 0 0 20px rgba(255, 0, 255, 0.8);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .homepage-grid {
+            background-color: white;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .homepage-item {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .homepage-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .homepage-item img {
+            max-width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .homepage-item h2 {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+            color: #2d2d2d;
+        }
+
+        .section {
+            padding: 2rem 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .review-detail {
+            text-align: center;
+        }
+
+        .review-detail img {
+            max-width: 100%;
+            width: 600px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: #1d0948;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="C:\Users\vishw\Downloads\1655979867431.jpg" alt="Your Photo">
+            <h1>Stories, Pixels, and Pages</h1>
+
+        </div>
+        <div class="explore-links">
+            <a href="#pages-section" onclick="showReviewList('pages-section')">
+                <img src="Images/book.png" alt="Books Icon">
+                Pages
+            </a>
+            <a href="#pixels-section" onclick="showReviewList('pixels-section')">
+                <img src="Images/gaming.png" alt="Games Icon">
+                Pixels
+            </a>
+            <a href="#stories-section" onclick="showReviewList('stories-section')">
+                <img src="Images/watching-a-movie.png" alt="Movies Icon">
+                Stories
+            </a>
+        </div>
+    </header>
+
+    <div class="neon-line"></div>
+
+    <div class="container">
+        <section id="about" class="about">
+            <h2></h2>
+            <p> <b>Welcome! to "Stories, Pixels, and Pages"! </b>
+
+                Here, I share my favorite books, games, and movies that have captivated my imagination and left a lasting impression. Each review reflects my personal thoughts and experiences, as I dive into the stories, explore immersive gaming worlds, and analyze the messages behind cinematic masterpieces.
+                
+                Whether you're a fellow bookworm, gamer, or movie enthusiast, I hope you’ll find something here that resonates with you. Take a look, and let’s celebrate the art of storytelling in all its forms!</p>
+        </section>
+
+    <div class="container">
+        <!-- Homepage Grid -->
+        <div class="homepage-grid">
+            <div class="homepage-item">
+                <img src="Images/books.gif" alt="Books">
+                <h2><a href="#pages-section" onclick="showReviewList('pages-section')">Books</a></h2>
+            </div>
+            <div class="homepage-item">
+                <img src="Images/adventure-game.gif" alt="Games">
+                <h2><a href="#pixels-section" onclick="showReviewList('pixels-section')">Games</a></h2>
+            </div>
+            <div class="homepage-item">
+                <img src="Images/film-shooting.gif" alt="Movies">
+                <h2><a href="#stories-section" onclick="showReviewList('stories-section')">Movies</a></h2>
+            </div>
+        </div>
+
+        <!-- Reviews Sections -->
+        <section id="stories-section" class="section hidden">
+            <h2>Stories (Movies and Web Series)</h2>
+            <ul id="stories-list">
+                <li><a href="javascript:void(0)" onclick="showReview('interstellar')">Interstellar</a></li>
+                <li><a href="javascript:void(0)" onclick="showReview('shutter_island')">Shutter Island</a></li>
+                <li><a href="javascript:void(0)" onclick="showReview('bb')">Breaking Bad</a></li>
+                <li><a href="javascript:void(0)" onclick="showReview('haunting')">The Haunting of Hill House</a></li>
+                <li><a href="javascript:void(0)" onclick="showReview('3')">3 Idiots</a></li>
+            </ul>
+        </section>
+
+        <section id="pixels-section" class="section hidden">
+            <h2>Pixels (Games)</h2>
+            <ul id="pixels-list">
+                <li><a href="javascript:void(0)" onclick="showReview('detroit')">Detroit: Become Human</a></li>
+                <li><a href="javascript:void(0)" onclick="showReview('portal')">Portal Series</a></li>
+                <li><a href="javascript:void(0)" onclick="showReview('firewatch')">Firewatch</a></li>
+                <li><a href="javascript:void(0)" onclick="showReview('ls')">Life is Strange</a></li>
+                <li><a href="javascript:void(0)" onclick="showReview('al')">Alein Isolation</a></li>
+                <li><a href="javascript:void(0)" onclick="showReview('f3')">Far Cry 3</a></li>
+                <li><a href="javascript:void(0)" onclick="showReview('finc')">What Remains of Edith Finches</a></li>
+
+
+            </ul>
+        </section>
+
+        <section id="pages-section" class="section hidden">
+            <h2>Pages (Books)</h2>
+            <ul id="pages-list">
+                <li><a href="javascript:void(0)" onclick="showReview('the_alchemist')">The Alchemist</a></li>
+                <li><a href="javascript:void(0)" onclick="showReview('sapiens')">Sapiens</a></li>
+                <li><a href="javascript:void(0)" onclick="showReview('wha')">What is Life? - Erwin Schrödinger </a></li>
+                <li><a href="javascript:void(0)" onclick="showReview('night')">White Nights</a></li>
+                <li><a href="javascript:void(0)" onclick="showReview('hat')">The Man Who Mistok his Wife for Hat</a></li>
+            </ul>
+        </section>
+
+        <!-- Review Details Section -->
+        <section id="review-details" class="section hidden">
+            <div class="review-detail">
+                <h2 id="review-title"></h2>
+                <img id="review-image" src="" alt="Review Image">
+                <p id="review-content"></p>
+                <button onclick="backToReviews()">Back to Reviews</button>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Vishwesh Deshpande. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const reviews = [
+            {
+                id: "interstellar",
+                title: "Interstellar",
+                content: "Christopher Nolan’s Interstellar is one of the first science fiction movie I watched and it was an unforgettable experience experience. From the stunning visuals of Universe to Hans Zimmer’s spine-tingling score, every part of this film pulls you in and leaves you in awe.\nIt’s a story about survival, discovery, and something far greater—what it means to be human. There’s a line in the movie that really stuck with me: “Survival is humanity’s greatest gift.” It’s true. Our instinct to push through challenges, to adapt and innovate, has brought us this far.\nBut Interstellar doesn’t stop there—it dives deeper, showing us that survival alone isn’t enough. What really drives us is love. The bond between Cooper and Murph proves that love isn’t just an emotion; it’s something that can transcend space, time, and even dimensions. The moment when Cooper realizes he’s the “ghost” guiding Murph from the black hole is as mind-blowing as it is heartwarming. And then there’s Gargantua—the black hole. It’s both terrifying and beautiful, a symbol of the unknown that humanity is brave enough to face. That final scene, where Cooper communicates with Murph through gravity, is a reminder of our limitless potential to find solutions, even when everything seems impossible. Of course, none of this would feel as powerful without Hans Zimmer’s score. The music is more than a backdrop—it’s the soul of the movie. The use of the organ creates a sense of grandeur and urgency, making the vastness of space feel both overwhelming and deeply personal. It’s the reason Interstellar is not just a movie but an out-of-this-world experience. Interstellar is more than a sci-fi film. It’s a story about dreaming big, taking risks, and holding on to what matters most. It’s a movie that stays with you, making you think about the universe and our place in it long after it ends.",
+                image: "Images/intersteller.jpg",
+                section: "stories-section"
+            },
+            {
+                id: "shutter_island",
+                title: "Shutter Island",
+                content: "When I first watched Shutter Island, I was completely hooked. The setting—a lonely, storm-battered island with an old mental asylum—sets the stage for a story that feels unsettling from the very beginning. You can almost feel the cold wind and hear the distant echoes in those eerie corridors. The soundtrack is something I can’t forget. It’s haunting and builds so much tension that it pulls you deeper into the story without even realizing it. Every note adds to the mystery and dread, making it impossible to look away.\nWhat really stood out to me was how the movie explores schizophrenia and mental illness. It’s not just a plot device; it feels raw and real. Leonardo DiCaprio’s performance as Teddy Daniels blew me away. He captures the confusion and pain of his character so perfectly that you can’t help but feel for him. And when the final twist hit, it completely flipped my perspective. It’s the kind of ending that makes you sit in silence, replaying everything in your head.\nShutter Island isn’t just about solving a mystery—it’s about confronting the darkest parts of the mind. It’s chilling, emotional, and thought-provoking all at once. If you love movies that leave you questioning everything, this one’s for you.",
+                image: "Images/HD-wallpaper-movie-shutter-island.jpg",
+                section: "stories-section"
+            },
+            {
+                id: "bb",
+                title: "Breaking Bad",
+                content: "When I think about Breaking Bad, the first thing that comes to mind is how brilliantly it starts with something so simple—an ordinary high school chemistry teacher turning to cooking meth—and escalates into an epic spiral of chaos and destruction. Every episode feels like a masterclass in storytelling, pulling you deeper into Walter White’s world as he transforms from a desperate man into someone terrifyingly unrecognizable.\nThe setting plays a big part in making the story so gripping. The dusty, sun-soaked landscapes of Albuquerque give the show a unique vibe—beautiful, yet desolate, almost mirroring the emptiness growing in Walter’s soul. And let’s not forget the brilliant soundtrack that underscores every high-stakes moment, whether it’s a tense deal or an emotional breakdown. But what really sets Breaking Bad apart is its characters. Walter White is one of the most complex and fascinating characters I’ve ever seen. His slow descent into darkness is written so well that you can’t help but root for him, even when you know he’s doing terrible things. And then there’s Jesse Pinkman, whose raw emotion and tragic arc make him the heart of the series. Their relationship—equal parts partnership and tragedy—keeps you hooked.\nThe show doesn’t just entertain; it makes you think. It’s a deep dive into morality, power, and the choices that define us. Watching Walt lose himself in his quest for power is both exhilarating and heartbreaking. And that ending? Perfectly bittersweet. It’s rare for a show to stick the landing, but Breaking Bad does it with style.\nIf you love intense drama, unforgettable characters, and a story that keeps raising the stakes, Breaking Bad is a must-watch. It’s more than a show—it’s a masterpiece.",
+                image: "Images/break.jpg",
+                section: "stories-section"
+            },
+            {
+                id: "haunting",
+                title: "The Haunting of Hill House",
+                content: "The Haunting of Hill House isn’t just about ghosts—it’s about the things that haunt us in life: grief, guilt, and the bonds that tie families together. From the very first episode, the series pulls you into its world with a mix of deep emotion and bone-chilling terror. The setting of Hill House is unforgettable. The sprawling mansion is as much a character as the Crain family itself. Its dimly lit halls, creaking floors, and hidden ghosts create an atmosphere that’s both terrifying and oddly beautiful. Every room holds a secret, and every corner feels like something—or someone—is watching.\nWhat I loved most about this show is how it balances horror with heart. Yes, there are moments that make you jump out of your seat (that car scene, anyone?), but the real strength of the series lies in its characters. Each member of the Crain family has their own struggles and traumas, and watching how the house shapes—and breaks—them is heartbreaking. The storytelling is another standout. The way the narrative weaves between the past and present is seamless, building tension and emotion with every twist. By the end, it’s not just a haunted house story; it’s a deeply moving exploration of love, loss, and healing.\nIf you’re looking for a series that will scare you, make you cry, and leave you thinking long after it’s over, The Haunting of Hill House is a must-watch. It’s more than just a ghost story—it’s a masterpiece of horror and humanity.",
+                image: "Images/hill.png",
+                section: "stories-section"
+            },
+            {
+                id: "3",
+                title: "3 Idiots",
+                content: "3 Idiots is one of those movies that makes you laugh, cry, and rethink life all at the same time. It’s not just a story about three college friends; it’s a reflection on the pressures of education, the importance of passion, and the beauty of true friendship. The movie takes us into the world of an engineering college, where Rancho, Raju, and Farhan navigate the ups and downs of academic life. What sets it apart is its ability to tackle serious issues—like mental health, societal expectations, and the rigid education system—while keeping things lighthearted and entertaining. The humor is spot on, and the emotional moments hit you right in the heart.\nRancho, played brilliantly by Aamir Khan, is the heart of the story. His philosophy of “Pursue excellence, and success will follow” is something that sticks with you. Farhan and Raju add layers of relatability to the film with their struggles to follow their dreams and overcome fears. The friendships in this movie feel so real. Whether it’s standing up for each other or sharing a moment of laughter in tough times, the bond between the three friends reminds you of your own college days—or makes you wish for friends like them.\nThe message of 3 Idiots is universal: life isn’t just about marks and degrees; it’s about following your passion and finding joy in what you do. And of course, the unforgettable line, “All is well,” is something you’ll catch yourself saying long after the movie ends. If you haven’t seen 3 Idiots, you’re missing out on a movie that’s as funny as it is meaningful. It’s a celebration of friendship, dreams, and living life on your own terms..",
+                image: "Images/3.jpg",
+                section: "stories-section"
+            },
+            {
+                id: "detroit",
+                title: "Detroit: Become Human",
+                content: "Playing 'Detroit: Become Human' was a mind-bending experience for me. It made me question what it truly means to be alive. The game blurs the lines between humans and androids, diving deep into themes of consciousness and identity. I found Connor's journey especially striking—his moment of choosing empathy over violence was powerful, showing a robot displaying deeply human emotions. And Kara’s unwavering love for the child beautifully captured the essence of family. It made me think about how robots could evolve to value family and protection, much like our own biological instincts. These moments left me pondering the future of AI and our own humanity long after the credits rolled. \nThe game’s narrative is a journey that makes you question not just the future of AI, but also what it means to be human in a rapidly changing world.",
+                image: "Images/det.jpg",
+                section: "pixels-section"
+            },
+            {
+                id: "portal",
+                title: "Portal",
+                content: "The Portal series is one of the most unique gaming experiences I’ve ever had. It takes something as simple as solving puzzles with a portal gun and turns it into a brilliantly engaging adventure filled with humor, mystery, and just the right amount of existential dread. The setting of Aperture Science is fascinating and unsettling at the same time. It’s a cold, sterile environment with layers of chaos hidden beneath the surface. The deeper you go, the more you uncover about its dark history and twisted experiments. It’s the kind of place that keeps you curious—and a little nervous—about what’s around the next corner.\nWhat really sets Portal apart, though, is the writing. GLaDOS, the sarcastic and often unsettling AI, steals the show with her dry humor and cutting remarks. And then there’s Wheatley, whose bumbling charm adds a different kind of humor to Portal 2. The dialogue is so sharp and witty that I found myself laughing even in the tensest moments. The gameplay is pure genius. Using the portal gun to solve increasingly complex puzzles is both challenging and satisfying. Every new mechanic is introduced in a way that feels natural, and by the end, you feel like a master of physics. The puzzles aren’t just about solving; they’re about thinking outside the box.\nWhat I love most about the Portal series is how it combines humor with deeper themes. It’s a game about science, progress, and the consequences of unchecked ambition. The idea of human experiments, while terrifying, is presented in a way that makes you think without overwhelming you. If you enjoy games that make you laugh, challenge your brain, and immerse you in a world unlike any other, the Portal series is a must-play. It’s more than a game—it’s a masterclass in storytelling and design.",
+                image: "Images/port.jpg",
+                section: "pixels-section"
+            },
+            {
+                id: "firewatch",
+                title: "Firewatch",
+                content: "Firewatch is not just a game; it’s a deeply personal journey into loneliness, human connection, and the raw edges of our emotions.  The way it builds up an air of mystery, only to reveal something simpler yet profound, is striking. It reminds us how we often complicate things when the answers are right in front of us. Henry’s connection with Delilah, a disembodied voice over the radio, feels real yet incomplete. Their conversations are awkward, filled with humor, regret, and longing. It reminded me of how we often seek solace in others, not to solve our problems, but to feel less alone in them.The absence of a grand mystery at the end is a poignant reminder that sometimes, the answers we seek are simpler than we imagine.\nThe wilderness in Firewatch is not just a backdrop; it’s a character in its own right. The lush forests and expansive vistas create a sense of isolation that mirrors Henry’s internal solitude. This solitude is both a refuge and a challenge, pushing us to confront our own inner landscapes.\nIn the end, Firewatch leaves us with a profound realization: that life’s true mysteries often lie not in the world around us, but within ourselves.",
+                image: "Images/fire.webp",
+                section: "pixels-section"
+            },
+            {
+                id: "ls",
+                title: "Life is Strange",
+                content: "The game follows Max Caulfield, a photography student who discovers she has the ability to rewind time. What starts as a simple mystery quickly turns into a deep, emotional exploration of friendship, love, and the ripple effects of every decision we make. Max’s bond with her childhood friend Chloe is at the heart of the story, and their relationship feels so real, with all its flaws and complexities. One of the most striking aspects of Life is Strange is its atmosphere. The small-town setting of Arcadia Bay is beautifully crafted, with its quiet streets, lush forests, and the constant looming presence of the sea. The soundtrack adds another layer to the experience, with indie tracks that perfectly capture the game’s bittersweet tone.\nThe gameplay revolves around choices, and every decision feels meaningful. The time-rewinding mechanic is unique and adds a sense of weight to even the smallest moments. But what makes it truly impactful is how the game forces you to face the consequences of your actions, often in ways you don’t expect. What I love most about Life is Strange is how it handles its themes—mental health, identity, loss, and finding your place in the world. It doesn’t shy away from tough topics, and it presents them with sensitivity and depth.\nIf you’re looking for a game that tells a deeply personal story, makes you care about its characters, and leaves you questioning your own choices, Life is Strange is a must-play. It’s not just a game—it’s an emotional journey you’ll never forget.",
+                image: "Images/lis.jpg",
+                section: "pixels-section"
+            },
+            {
+                id: "al",
+                title: "Alien Isolation",
+                content: "Alien: Isolation is nerve-wracking survival experience that drops you into the heart of sci-fi horror. From the moment you step aboard the Sevastopol space station, the atmosphere pulls you in. The dim lighting, creaking metal, and retro-futuristic design perfectly capture the feel of the original Alien movie. Every corridor feels alive, and every shadow hides a potential threat. What truly amazed me was the AI behind the Alien. The Xenomorph isn’t just a mindless enemy—it learns, adapts, and hunts you relentlessly. It’s unpredictable, which makes every encounter a terrifying game of cat and mouse. The fact that you’re never entirely safe, even when hiding, keeps your adrenaline pumping and adds a layer of realism to the horror.\nThe Sevastopol itself deserves praise as much as the Alien. The ship feels like a character, with its labyrinthine layout, eerie silence, and decaying interior. Exploring it is as much about survival as it is about uncovering the haunting story of its inhabitants. The attention to detail is incredible, from the flickering lights to the retro technology, which pays homage to the original 1979 film.\nThe gameplay is a perfect blend of stealth, resource management, and strategy. Crafting tools, sneaking past enemies, and deciding when to run or hide creates constant tension. Every decision feels critical, especially with the Alien looming as an ever-present danger.\nAlien: Isolation isn’t just about jump scares—it’s about creating a sense of dread that never lets up. It’s a love letter to fans of the Alien franchise and a masterclass in atmospheric design and intelligent AI. If you’re ready for a terrifying, immersive experience that tests your nerves and ingenuity, this game is a must-play.",
+                image: "Images/alien.jpg",
+                section: "pixels-section"
+            },
+            {
+                id: "f3",
+                title: "Far Cry 3",
+                content: "From the moment you’re stranded on the tropical Rook Islands, you feel the thrill of freedom mixed with the constant threat of survival.The setting is one of the game’s biggest highlights. The lush, open-world environment is stunning, with vibrant jungles, cascading waterfalls, and beautiful beaches. But don’t let its beauty fool you—danger lurks around every corner, from wild animals to enemy patrols. Exploring this unpredictable island is both exhilarating and terrifying.\nThen there’s Vaas Montenegro, one of the most iconic villains in gaming. His unpredictable nature and chilling monologues steal every scene he’s in. He’s the embodiment of chaos, and his presence keeps you on edge throughout the game. His famous line, “Did I ever tell you the definition of insanity?” perfectly captures the game’s themes of madness and survival. The gameplay is equally engaging. From stealth takedowns to all-out firefights, every encounter feels dynamic and intense. The crafting system adds a layer of strategy, letting you hunt wildlife to create better gear, while the skill tree lets you customize your playstyle as you transform from a terrified tourist into a hardened survivor.\nWhat makes Far Cry 3 stand out is how it blends its action with a deeper narrative. The story explores the darker sides of human nature, the line between hero and villain, and what it means to truly survive. As Jason Brody, you’re not just fighting enemies—you’re fighting your own descent into madness.",
+                image: "Images/far3.jpg",
+                section: "pixels-section"
+            },
+
+            {
+                id: "finc",
+                title: "What Remains of Edith Finches",
+                content: "The game takes you into the Finch family home, an eccentric, towering house full of secrets, memories, and tragedies.\nAs Edith, you explore the house, uncovering the stories of your family members through their rooms and belongings. Each story is told in its own unique way, blending gameplay and narrative seamlessly. Whether it’s swinging as a child or flying like an owl, every vignette feels distinct, creative, and deeply personal. The game’s atmosphere is breathtaking. The Finch home feels alive, with every detail adding to the sense of mystery and wonder. The art direction is stunning, creating a dreamlike world that’s both whimsical and haunting. Paired with a moving soundtrack, the game immerses you in its poignant themes of family, memory, and the inevitability of loss.\nWhat makes What Remains of Edith Finch so special is its ability to tackle heavy themes like death and grief in a way that’s both heartbreaking and beautiful. It’s not just about sadness—it’s about celebrating life, no matter how fleeting it may be. Each story is bittersweet, leaving you with a sense of awe and reflection.",
+                image: "Images/finc.jpg",
+                section: "pixels-section"
+            },
+
+            {
+                id: "the_alchemist",
+                title: "The Alchemist",
+                content: "The Alchemist by Paulo Coelho is a timeless tale about the power of following your dreams and the lessons learned on a journey taken alone. At its heart, the book is about stepping away from the familiar and embarking on a path of self-discovery.\nSantiago, a shepherd boy, leaves the safety of his home to chase a dream of hidden treasure. Along the way, he discovers that the true treasure isn’t gold or riches—it’s the wisdom, growth, and self-awareness gained through the journey itself. By the end, Santiago realizes that the treasure he sought was right where he started, but without the journey, he wouldn’t have gained the understanding to see its value. The book beautifully illustrates that traveling alone isn’t about isolation—it’s about listening to your heart, trusting your instincts, and finding your unique purpose. One of the most profound moments comes with the line:\n“Everyone seems to have a clear idea of how other people should lead their lives, but none about his or her own.\n” This perfectly encapsulates the message of the book: the importance of focusing on your own journey instead of conforming to others’ expectations. Santiago’s path reminds us that life’s greatest treasures are not found at the destination but in the courage, growth, and understanding gained from walking the road alone. If you’re looking for a story that inspires you to trust your dreams and embrace the solitude of your journey, The Alchemist is a must-read. It’s a tale that encourages us to chase our passions and find fulfillment in the process.",
+                image: "Images/alc.jpg",
+                section: "pixels-section"
+            },
+
+            {
+                id: "sapiens",
+                title: "Sapiens",
+                content: "Sapiens: A Brief History of Humankind by Yuval Noah Harari is one of those books that completely shifts the way you see the world. It takes you on a journey through the history of our species, asking profound questions about who we are, where we came from, and where we might be heading.\nOne of the most captivating parts of the book is the Cognitive Revolution. Harari explains how, around 70,000 years ago, Homo sapiens underwent a transformation that allowed us to think, imagine, and communicate in ways no other species could. It’s fascinating to realize that this revolution—our ability to create shared myths, like religions, nations, and even money—is what gave us the power to dominate the planet. It wasn’t just about survival skills; it was about our ability to cooperate flexibly in large groups through shared beliefs.\nAnother compelling question the book raises is: When did humans gain consciousness? Harari doesn’t give a definitive answer but dives into the mystery of how our brains developed the capacity to think about ourselves, our place in the world, and even abstract ideas like love, justice, and mortality. It’s thought-provoking to consider that this leap in consciousness might have been gradual, yet it changed everything about how we interact with each other and the environment. The writing is engaging and easy to follow, even when tackling complex topics like evolutionary biology or sociology. Harari’s ability to connect the dots between ancient history and modern life is mind-blowing. He doesn’t just tell you what happened—he makes you think about why it matters today.\nSapiens is more than a history book; it’s a mirror reflecting the essence of humanity. If you’ve ever wondered how we became the way we are, this book is a must-read. It challenges your perspective and leaves you questioning what it truly means to be human.",
+                image: "Images/sap.jpg",
+                section: "pages-section"
+            },
+
+            {
+                id: "wha",
+                title: "What is Life? - Erwin Schrödinger",
+                content: "Erwin Schrödinger’s What Is Life? is a groundbreaking exploration of the connection between physics and biology. Written in 1944, this book is a testament to Schrödinger’s ability to look beyond the boundaries of his own field of quantum physics and ask profound questions about the nature of life itself. At its core, the book attempts to answer one of humanity’s biggest questions: What makes something alive? Schrödinger dives into the physical principles that govern living systems, bridging the gap between physics and biology in a way that was revolutionary for its time. His discussions on how genetic information is stored and passed down laid the groundwork for the discovery of DNA’s double-helix structure, making this book not just thought-provoking but historically significant.\nOne of the most fascinating parts is Schrödinger’s concept of “negentropy.” He explains how living organisms defy entropy—the natural tendency toward disorder—by constantly taking in energy from their surroundings to maintain order and sustain life. This idea isn’t just scientifically intriguing; it’s a poetic way of looking at life as a fight against chaos.\nThe book also touches on the quantum nature of biology, hinting at ideas that are still being explored today, like quantum mechanics in photosynthesis and other biological processes. Schrödinger’s ability to think beyond the conventional sciences of his time and connect such abstract concepts is what makes this book so remarkable. While the language can feel dense at times (it was written for a scientifically literate audience), What Is Life? is surprisingly accessible given its depth. Schrödinger’s curiosity and passion shine through, making complex topics feel engaging and even poetic.\nIf you’re interested in understanding life from a new perspective—one that blends physics, biology, and philosophy—What Is Life? is a must-read. It’s a small book, but its impact on science and how we think about life is immeasurable.",
+                image: "Images/ervin.jpg",
+                section: "pages-section"
+            },
+            {
+                id: "night",
+                title: " White Nights",
+                content: "There’s something timeless and tender about White Nights by Fyodor Dostoevsky. It’s not just a story—it’s a feeling, a fleeting moment of connection and longing that lingers in your heart. I was drawn to the narrator, the quintessential dreamer, who exists in a world of solitude and fantasy until a chance encounter with Nastenka brings him into the warmth of human connection.\nWhat struck me most was how Dostoevsky captured the bittersweet nature of love and loneliness. The narrator’s deep yearning for companionship resonated with me, especially the way he pours his soul into fleeting moments of joy, knowing they can’t last. It’s a story about hope, vulnerability, and the beauty of being human, even when that humanity comes with heartbreak. The philosophical undertones are equally moving. It made me reflect on how we all carry our dreams like fragile lanterns, hoping someone will notice their light. And even when those dreams don’t come true, the act of dreaming itself feels profoundly alive.\nFor me, White Nights isn’t just a love story—it’s a reminder that life’s most meaningful moments are often brief, but they leave an indelible mark on our hearts.",
+                image: "Images/wn.webp",
+                section: "pages-section"
+            },
+            {
+                id: "hat",
+                title: "The Man Who Mistook his Wife For Hat",
+                content: "Reading The Man Who Mistook His Wife for a Hat by Oliver Sacks was a transformative experience. It didn’t just introduce me to the complexities of the human brain—it ignited a deep curiosity about neuroscience. Sacks’ ability to humanize neurological conditions showed me how science and empathy can coexist beautifully.\nWhat moved me most was the philosophical undertone running through the book. It made me realize that the brain is not just an organ—it’s the seat of identity, memory, and perception. The way Sacks described his patients’ struggles and triumphs felt like a reminder of how fragile and extraordinary human existence truly is.\nThis book wasn’t just about neurological phenomena; it was about what makes us human. It sparked my fascination with how the mind shapes reality and inspired me to explore the mysteries of the brain further. For me, it was a call to not only study neuroscience but to approach it with compassion and wonder.",
+                image: "Images/hat.jpg",
+                section: "pages-section"
+            }
+        ];
+
+
+        function scrollToReviews() {
+            document.querySelectorAll('.section').forEach(section => section.classList.remove('hidden'));
+            document.getElementById('stories-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showReview(id) {
+            const review = reviews.find(r => r.id === id);
+            if (review) {
+                document.getElementById('review-title').innerText = review.title;
+                document.getElementById('review-image').src = review.image;
+                document.getElementById('review-content').innerText = review.content;
+                document.querySelectorAll('.section').forEach(section => section.classList.add('hidden'));
+                document.getElementById('review-details').classList.remove('hidden');
+            }
+        }
+
+        function backToReviews() {
+            document.querySelectorAll('.section').forEach(section => section.classList.remove('hidden'));
+            document.getElementById('review-details').classList.add('hidden');
+        }
+
+        function showReviewList(sectionId) {
+            document.querySelectorAll('.section').forEach(section => section.classList.add('hidden'));
+            document.getElementById(sectionId).classList.remove('hidden');
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+
+    </script>
+</body>
+</html>
