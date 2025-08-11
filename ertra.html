@@ -31,14 +31,6 @@
             background: #d8dfea;
             color: #2d2d2d;
             scroll-behavior: smooth;
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #d8dfea;
-            color: #2d2d2d;
-            scroll-behavior: smooth;
         }
 
         header {
@@ -49,6 +41,13 @@
             color: white;
             height: 180px;
             padding: 0 2rem;
+            padding-right: 3rem;
+            background: #000000;
+            box-shadow:
+                0 0 15px rgba(0, 192, 255, 1),
+                0 0 15px rgba(255, 0, 255, 1),
+                0 0 30px rgba(0, 192, 255, 0.8),
+                0 0 30px rgba(255, 0, 255, 0.8);
             background: #000000;
             overflow: hidden;
         }
@@ -80,6 +79,7 @@
             font-size: 2rem;
             margin: 0;
             color: white;
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
         }
 
         header .header-content p {
@@ -199,6 +199,40 @@
             background: #1d0948;
             color: white;
         }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+                text-align: center;
+            }
+            .header-content {
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 0.5rem;
+            }
+            header .header-content img {
+                width: 70px;
+                height: auto;
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+            header h1 {
+                font-size: 1.5rem;
+            }
+            .explore-links {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                margin-top: 0.5rem;
+            }
+            .explore-links img {
+                width: 24px;
+                height: 24px;
+            }
+        }
+        
     </style>
 </head>
 <body>
